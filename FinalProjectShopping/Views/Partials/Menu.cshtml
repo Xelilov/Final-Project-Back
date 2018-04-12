@@ -1,0 +1,47 @@
+﻿@model FinalProjectShopping.Models.MenuViewModel
+<section id="header">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/assents_home/images/Example.png" alt="">
+                </div>
+                <div class="col-md-6 text-right">
+                    <div class="_header_icons">
+                        <a class="_user_bag" href="bag.html"><i class="fas fa-shopping-bag"></i></a>
+                        <a href="/LoginRegister/Index"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded _navbar_color">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    @foreach (var item in Model._category)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="@Url.Action("Category","Home", new {id=item.category_id})" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@Html.DisplayFor(modelItem => item.category_name)</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                @foreach (var sub_item in Model._subcategory)
+                                {
+                                    if (sub_item.category_id==item.category_id)
+                                    {
+                                        <a class="dropdown-item" href="@Url.Action("Subcategory","Home",new {id = sub_item.subcategory_id })">@sub_item.subcategory_name</a>
+                                    }                                    
+                                }
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FinalProjectShopping.Models.Subcategory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<button class="btn btn-outline-grey">
+    @Html.ActionLink("Create New", "Create")
+</button>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <h4>@Html.DisplayNameFor(model => model.subcategory_name)</h4>
+            </th>
+            <th>
+                <h4>@Html.DisplayNameFor(model => model.Category.category_name)</h4>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <h6>@Html.DisplayFor(modelItem => item.subcategory_name)</h6>
+                </td>
+                <td>
+                    <h6>@Html.DisplayFor(modelItem => item.Category.category_name)</h6>
+                </td>
+                <td>
+                    <button class="btn btn-success btn-md">@Html.ActionLink("Edit", "Edit", new { id = item.subcategory_id })</button>
+                    <button class="btn btn-info btn-md">@Html.ActionLink("Details", "Details", new { id = item.subcategory_id })</button>
+                    <button class="btn btn-danger btn-md">@Html.ActionLink("Delete", "Delete", new { id = item.subcategory_id })</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

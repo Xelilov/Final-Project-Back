@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="admin_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="asmin_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BusinessAccount">
+    <Key>
+      <PropertyRef Name="business_id" />
+    </Key>
+    <Property Name="business_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="business_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="business_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="business_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="business_phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="business_location" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="color_id" />
+    </Key>
+    <Property Name="color_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="color_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InnerSubcategory">
+    <Key>
+      <PropertyRef Name="innersubcategory_id" />
+    </Key>
+    <Property Name="innersubcategory_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="innersubcategory_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="innersubcategory_subcategory_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_price" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_category_id" Type="int" Nullable="false" />
+    <Property Name="product_subcategory_id" Type="int" Nullable="false" />
+    <Property Name="product_innersubcategory_id" Type="int" Nullable="false" />
+    <Property Name="product_discount_rate" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_discount_time" Type="datetime" />
+    <Property Name="product_business_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductImage">
+    <Key>
+      <PropertyRef Name="product_img_id" />
+    </Key>
+    <Property Name="product_img_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_img" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="product_img_product_id" Type="int" Nullable="false" />
+    <Property Name="product_img_color_id" Type="int" Nullable="false" />
+    <Property Name="product_img_count" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductPivotSize">
+    <Key>
+      <PropertyRef Name="product_pivot_id" />
+    </Key>
+    <Property Name="product_pivot_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_pivot_img_id" Type="int" Nullable="false" />
+    <Property Name="product_pivot_size_id" Type="int" />
+    <Property Name="product_pivot_count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="size_id" />
+    </Key>
+    <Property Name="size_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="size_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subcategory">
+    <Key>
+      <PropertyRef Name="subcategory_id" />
+    </Key>
+    <Property Name="subcategory_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subcategory_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_InnerSubcategory_Subcategory">
+    <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="1" />
+    <End Role="InnerSubcategory" Type="Self.InnerSubcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subcategory">
+        <PropertyRef Name="subcategory_id" />
+      </Principal>
+      <Dependent Role="InnerSubcategory">
+        <PropertyRef Name="innersubcategory_subcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_BusinessAccount">
+    <End Role="BusinessAccount" Type="Self.BusinessAccount" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessAccount">
+        <PropertyRef Name="business_id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="product_business_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="product_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_InnerSubcategory">
+    <End Role="InnerSubcategory" Type="Self.InnerSubcategory" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InnerSubcategory">
+        <PropertyRef Name="innersubcategory_id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="product_innersubcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Subcategory">
+    <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subcategory">
+        <PropertyRef Name="subcategory_id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="product_subcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductImage_Colors">
+    <End Role="Colors" Type="Self.Colors" Multiplicity="1" />
+    <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colors">
+        <PropertyRef Name="color_id" />
+      </Principal>
+      <Dependent Role="ProductImage">
+        <PropertyRef Name="product_img_color_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductImage_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="ProductImage">
+        <PropertyRef Name="product_img_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPivotSize_ProductImage">
+    <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="1" />
+    <End Role="ProductPivotSize" Type="Self.ProductPivotSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductImage">
+        <PropertyRef Name="product_img_id" />
+      </Principal>
+      <Dependent Role="ProductPivotSize">
+        <PropertyRef Name="product_pivot_img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPivotSize_Size">
+    <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
+    <End Role="ProductPivotSize" Type="Self.ProductPivotSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Size">
+        <PropertyRef Name="size_id" />
+      </Principal>
+      <Dependent Role="ProductPivotSize">
+        <PropertyRef Name="product_pivot_size_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subcategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="Subcategory">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinalProjectModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessAccount" EntityType="Self.BusinessAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InnerSubcategory" EntityType="Self.InnerSubcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductImage" EntityType="Self.ProductImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPivotSize" EntityType="Self.ProductPivotSize" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subcategory" EntityType="Self.Subcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_InnerSubcategory_Subcategory" Association="Self.FK_InnerSubcategory_Subcategory">
+      <End Role="Subcategory" EntitySet="Subcategory" />
+      <End Role="InnerSubcategory" EntitySet="InnerSubcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_BusinessAccount" Association="Self.FK_Product_BusinessAccount">
+      <End Role="BusinessAccount" EntitySet="BusinessAccount" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_InnerSubcategory" Association="Self.FK_Product_InnerSubcategory">
+      <End Role="InnerSubcategory" EntitySet="InnerSubcategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Subcategory" Association="Self.FK_Product_Subcategory">
+      <End Role="Subcategory" EntitySet="Subcategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductImage_Colors" Association="Self.FK_ProductImage_Colors">
+      <End Role="Colors" EntitySet="Colors" />
+      <End Role="ProductImage" EntitySet="ProductImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductImage_Product" Association="Self.FK_ProductImage_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductImage" EntitySet="ProductImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPivotSize_ProductImage" Association="Self.FK_ProductPivotSize_ProductImage">
+      <End Role="ProductImage" EntitySet="ProductImage" />
+      <End Role="ProductPivotSize" EntitySet="ProductPivotSize" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPivotSize_Size" Association="Self.FK_ProductPivotSize_Size">
+      <End Role="Size" EntitySet="Size" />
+      <End Role="ProductPivotSize" EntitySet="ProductPivotSize" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subcategory_Category" Association="Self.FK_Subcategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Subcategory" EntitySet="Subcategory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

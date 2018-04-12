@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF4CB818-496F-49F1-A964-7B362AAB2FA4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinalProjectShopping</RootNamespace>
+    <AssemblyName>FinalProjectShopping</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
+    <Compile Include="Areas\Admins\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admins\Controllers\ColorsController.cs" />
+    <Compile Include="Areas\Admins\Controllers\InnerSubcategryController.cs" />
+    <Compile Include="Areas\Admins\Controllers\SizesController.cs" />
+    <Compile Include="Areas\Admins\Controllers\SubcategoriesController.cs" />
+    <Compile Include="Controllers\AuthorizationFilterUserController.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginRegisterController.cs" />
+    <Compile Include="Controllers\PartialsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusinessAccount.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusinessModel.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryHtmlVM.cs" />
+    <Compile Include="Models\Color.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FinalProjectModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalProjectModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FinalProjectModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FinalProjectModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalProjectModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InnerSubcategory.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductImage.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductPivotSize.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\Size.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subcategory.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserAccount.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assents_admin\css\sb-admin.css" />
+    <Content Include="assents_admin\css\sb-admin.min.css" />
+    <Content Include="assents_admin\js\sb-admin-charts.js" />
+    <Content Include="assents_admin\js\sb-admin-charts.min.js" />
+    <Content Include="assents_admin\js\sb-admin-datatables.js" />
+    <Content Include="assents_admin\js\sb-admin-datatables.min.js" />
+    <Content Include="assents_admin\js\sb-admin.js" />
+    <Content Include="assents_admin\js\sb-admin.min.js" />
+    <Content Include="assents_admin\MDB\css\bootstrap.css" />
+    <Content Include="assents_admin\MDB\css\bootstrap.min.css" />
+    <Content Include="assents_admin\MDB\css\mdb.css" />
+    <Content Include="assents_admin\MDB\css\mdb.min.css" />
+    <Content Include="assents_admin\MDB\css\style.css" />
+    <Content Include="assents_admin\MDB\img\lightbox\default-skin.png" />
+    <Content Include="assents_admin\MDB\img\lightbox\default-skin.svg" />
+    <Content Include="assents_admin\MDB\img\lightbox\preloader.gif" />
+    <Content Include="assents_admin\MDB\img\overlays\01.png" />
+    <Content Include="assents_admin\MDB\img\overlays\02.png" />
+    <Content Include="assents_admin\MDB\img\overlays\03.png" />
+    <Content Include="assents_admin\MDB\img\overlays\04.png" />
+    <Content Include="assents_admin\MDB\img\overlays\05.png" />
+    <Content Include="assents_admin\MDB\img\overlays\06.png" />
+    <Content Include="assents_admin\MDB\img\overlays\07.png" />
+    <Content Include="assents_admin\MDB\img\overlays\08.png" />
+    <Content Include="assents_admin\MDB\img\overlays\09.png" />
+    <Content Include="assents_admin\MDB\img\svg\arrow_left.svg" />
+    <Content Include="assents_admin\MDB\img\svg\arrow_right.svg" />
+    <Content Include="assents_admin\MDB\index.html" />
+    <Content Include="assents_admin\MDB\js\bootstrap.js" />
+    <Content Include="assents_admin\MDB\js\bootstrap.min.js" />
+    <Content Include="assents_admin\MDB\js\jquery-3.2.1.min.js" />
+    <Content Include="assents_admin\MDB\js\mdb.js" />
+    <Content Include="assents_admin\MDB\js\mdb.min.js" />
+    <Content Include="assents_admin\MDB\js\popper.min.js" />
+    <Content Include="assents_admin\MDB\license.txt" />
+    <Content Include="assents_admin\MDB\README.txt" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assents_admin\vendor\chart.js\Chart.bundle.js" />
+    <Content Include="assents_admin\vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="assents_admin\vendor\chart.js\Chart.js" />
+    <Content Include="assents_admin\vendor\chart.js\Chart.min.js" />
+    <Content Include="assents_admin\vendor\datatables\dataTables.bootstrap4.css" />
+    <Content Include="assents_admin\vendor\datatables\dataTables.bootstrap4.js" />
+    <Content Include="assents_admin\vendor\datatables\jquery.dataTables.js" />
+    <Content Include="assents_admin\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="assents_admin\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assents_admin\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assents_admin\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="assents_admin\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="assents_admin\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="assents_admin\vendor\jquery\jquery.js" />
+    <Content Include="assents_admin\vendor\jquery\jquery.min.js" />
+    <Content Include="assents_admin\vendor\jquery\jquery.slim.js" />
+    <Content Include="assents_admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="assents_home\css\style.css" />
+    <Content Include="assents_home\images\300x300clothing1.jpeg" />
+    <Content Include="assents_home\images\300x300clothing2.jpg" />
+    <Content Include="assents_home\images\300x300clothing3.jpg" />
+    <Content Include="assents_home\images\300x300clothing4.jpg" />
+    <Content Include="assents_home\images\3x4.jpg" />
+    <Content Include="assents_home\images\3x4_1.jpg" />
+    <Content Include="assents_home\images\3x4_10.jpg" />
+    <Content Include="assents_home\images\3x4_11.jpg" />
+    <Content Include="assents_home\images\3x4_12.jpg" />
+    <Content Include="assents_home\images\3x4_13.jpg" />
+    <Content Include="assents_home\images\3x4_2.jpg" />
+    <Content Include="assents_home\images\3x4_3.jpg" />
+    <Content Include="assents_home\images\3x4_4.jpg" />
+    <Content Include="assents_home\images\3x4_5.JPG" />
+    <Content Include="assents_home\images\3x4_6.jpg" />
+    <Content Include="assents_home\images\3x4_7.jpg" />
+    <Content Include="assents_home\images\3x4_8.jpg" />
+    <Content Include="assents_home\images\3x4_9.jpg" />
+    <Content Include="assents_home\images\Example.png" />
+    <Content Include="assents_home\images\home300.jpg" />
+    <Content Include="assents_home\images\home3001.jpg" />
+    <Content Include="assents_home\images\home3002.jpg" />
+    <Content Include="assents_home\images\home3003.jpg" />
+    <Content Include="assents_home\images\pants3x4.jpg" />
+    <Content Include="assents_home\images\pants3x4_1.jpg" />
+    <Content Include="assents_home\images\pants3x4_10.jpg" />
+    <Content Include="assents_home\images\pants3x4_11.jpg" />
+    <Content Include="assents_home\images\pants3x4_12.jpg" />
+    <Content Include="assents_home\images\pants3x4_13.jpg" />
+    <Content Include="assents_home\images\pants3x4_14.jpg" />
+    <Content Include="assents_home\images\pants3x4_15.jpg" />
+    <Content Include="assents_home\images\pants3x4_2.jpg" />
+    <Content Include="assents_home\images\pants3x4_3.jpg" />
+    <Content Include="assents_home\images\pants3x4_4.jpg" />
+    <Content Include="assents_home\images\pants3x4_5.jpg" />
+    <Content Include="assents_home\images\pants3x4_6.jpg" />
+    <Content Include="assents_home\images\pants3x4_7.jpg" />
+    <Content Include="assents_home\images\pants3x4_8.jpg" />
+    <Content Include="assents_home\images\pants3x4_9.jpg" />
+    <Content Include="assents_home\images\pay01.png" />
+    <Content Include="assents_home\images\pay02.png" />
+    <Content Include="assents_home\images\pay03.png" />
+    <Content Include="assents_home\images\pay04.png" />
+    <Content Include="assents_home\images\pay05.ico" />
+    <Content Include="assents_home\images\sample.jpg" />
+    <Content Include="assents_home\images\shoes300.jpg" />
+    <Content Include="assents_home\images\shoes3001.jpg" />
+    <Content Include="assents_home\images\shoes3002.jpg" />
+    <Content Include="assents_home\images\shoes3003.jpg" />
+    <Content Include="assents_home\images\shopping.jpg" />
+    <Content Include="assents_home\images\shopping2.jpg" />
+    <Content Include="assents_home\images\shopping3.jpg" />
+    <Content Include="assents_home\images\sport300.jpg" />
+    <Content Include="assents_home\images\sport3001.jpg" />
+    <Content Include="assents_home\images\sport3002.png" />
+    <Content Include="assents_home\images\sport3003.jpg" />
+    <Content Include="assents_home\images\tech300.jpg" />
+    <Content Include="assents_home\images\tech3001.jpg" />
+    <Content Include="assents_home\images\tech3002.jpg" />
+    <Content Include="assents_home\images\tech3003.jpg" />
+    <Content Include="assents_home\images\test.jpg" />
+    <Content Include="assents_home\images\watch300.jpg" />
+    <Content Include="assents_home\images\watch3001.jpg" />
+    <Content Include="assents_home\images\watch3002.jpg" />
+    <Content Include="assents_home\images\watch3003.jpg" />
+    <Content Include="assents_home\js\datatables\dataTables.bootstrap4.css" />
+    <Content Include="assents_home\js\datatables\dataTables.bootstrap4.js" />
+    <Content Include="assents_home\js\datatables\jquery.dataTables.js" />
+    <Content Include="assents_home\js\datatables\sb-admin-datatables.js" />
+    <Content Include="assents_home\js\datatables\sb-admin-datatables.min.js" />
+    <Content Include="assents_home\js\script.js" />
+    <Content Include="assents_home\MDB\css\bootstrap.css" />
+    <Content Include="assents_home\MDB\css\bootstrap.min.css" />
+    <Content Include="assents_home\MDB\css\mdb.css" />
+    <Content Include="assents_home\MDB\css\mdb.min.css" />
+    <Content Include="assents_home\MDB\css\style.css" />
+    <Content Include="assents_home\MDB\img\lightbox\default-skin.png" />
+    <Content Include="assents_home\MDB\img\lightbox\default-skin.svg" />
+    <Content Include="assents_home\MDB\img\lightbox\preloader.gif" />
+    <Content Include="assents_home\MDB\img\overlays\01.png" />
+    <Content Include="assents_home\MDB\img\overlays\02.png" />
+    <Content Include="assents_home\MDB\img\overlays\03.png" />
+    <Content Include="assents_home\MDB\img\overlays\04.png" />
+    <Content Include="assents_home\MDB\img\overlays\05.png" />
+    <Content Include="assents_home\MDB\img\overlays\06.png" />
+    <Content Include="assents_home\MDB\img\overlays\07.png" />
+    <Content Include="assents_home\MDB\img\overlays\08.png" />
+    <Content Include="assents_home\MDB\img\overlays\09.png" />
+    <Content Include="assents_home\MDB\img\svg\arrow_left.svg" />
+    <Content Include="assents_home\MDB\img\svg\arrow_right.svg" />
+    <Content Include="assents_home\MDB\index.html" />
+    <Content Include="assents_home\MDB\js\bootstrap.js" />
+    <Content Include="assents_home\MDB\js\bootstrap.min.js" />
+    <Content Include="assents_home\MDB\js\jquery-3.2.1.min.js" />
+    <Content Include="assents_home\MDB\js\mdb.js" />
+    <Content Include="assents_home\MDB\js\mdb.min.js" />
+    <Content Include="assents_home\MDB\js\popper.min.js" />
+    <Content Include="assents_home\MDB\license.txt" />
+    <Content Include="assents_home\MDB\README.txt" />
+    <Content Include="assents_home\owl\owl.carousel.min.css" />
+    <Content Include="assents_home\owl\owl.carousel.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\FinalProjectModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinalProjectModel.edmx</DependentUpon>
+      <LastGenOutput>FinalProjectModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FinalProjectModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinalProjectModel.edmx</DependentUpon>
+      <LastGenOutput>FinalProjectModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admins\Models\" />
+    <Folder Include="Areas\Admins\Views\Shared\" />
+    <Folder Include="obj\" />
+    <Folder Include="Upload\" />
+    <Folder Include="Views\AuthorizationFilterUser\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assents_admin\pug\blank.pug" />
+    <Content Include="assents_admin\pug\cards.pug" />
+    <Content Include="assents_admin\pug\charts.pug" />
+    <Content Include="assents_admin\pug\forgot-password.pug" />
+    <Content Include="assents_admin\pug\includes\css\core.pug" />
+    <Content Include="assents_admin\pug\includes\css\custom.pug" />
+    <Content Include="assents_admin\pug\includes\footer.pug" />
+    <Content Include="assents_admin\pug\includes\js\core.pug" />
+    <Content Include="assents_admin\pug\includes\js\custom.pug" />
+    <Content Include="assents_admin\pug\includes\modals\logout.pug" />
+    <Content Include="assents_admin\pug\includes\navbar.pug" />
+    <Content Include="assents_admin\pug\includes\scroll-to-top.pug" />
+    <Content Include="assents_admin\pug\index.pug" />
+    <Content Include="assents_admin\pug\login.pug" />
+    <Content Include="assents_admin\pug\navbar.pug" />
+    <Content Include="assents_admin\pug\register.pug" />
+    <Content Include="assents_admin\pug\tables.pug" />
+    <Content Include="assents_admin\scss\navbar\_navbar_colors.scss" />
+    <Content Include="assents_admin\scss\navbar\_navbar_fixed.scss" />
+    <Content Include="assents_admin\scss\navbar\_navbar_global.scss" />
+    <Content Include="assents_admin\scss\navbar\_navbar_static.scss" />
+    <Content Include="assents_admin\scss\navbar\_navbar_toggle.scss" />
+    <Content Include="assents_admin\scss\sb-admin.scss" />
+    <Content Include="assents_admin\scss\_cards.scss" />
+    <Content Include="assents_admin\scss\_footer.scss" />
+    <Content Include="assents_admin\scss\_global.scss" />
+    <Content Include="assents_admin\scss\_login.scss" />
+    <Content Include="assents_admin\scss\_mixins.scss" />
+    <Content Include="assents_admin\scss\_utilities.scss" />
+    <Content Include="assents_admin\scss\_variables.scss" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assents_admin\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="assents_admin\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="assents_admin\vendor\font-awesome\css\font-awesome.css.map" />
+    <Content Include="assents_admin\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assents_admin\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assents_admin\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assents_admin\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assents_admin\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assents_admin\vendor\font-awesome\less\animated.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\core.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\icons.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\larger.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\list.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\mixins.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\path.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\stacked.less" />
+    <Content Include="assents_admin\vendor\font-awesome\less\variables.less" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="assents_admin\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="assents_admin\vendor\jquery\jquery.min.map" />
+    <Content Include="assents_admin\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Bold.eot" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Bold.ttf" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Bold.woff" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Bold.woff2" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Light.eot" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Light.ttf" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Light.woff" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Light.woff2" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Medium.eot" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Medium.ttf" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Medium.woff" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Medium.woff2" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Regular.eot" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Regular.ttf" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Regular.woff" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Regular.woff2" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Thin.eot" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Thin.ttf" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Thin.woff" />
+    <Content Include="assents_admin\MDB\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="assents_admin\MDB\License.pdf" />
+    <Content Include="assents_admin\MDB\scss\core\bootstrap\_functions.scss" />
+    <Content Include="assents_admin\MDB\scss\core\bootstrap\_variables.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_colors.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_global.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_helpers.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_masks.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_mixins.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_typography.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_variables.scss" />
+    <Content Include="assents_admin\MDB\scss\core\_waves.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_animations-basic.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_animations-extended.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_badges.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_buttons.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_cards.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_carousels.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_dropdowns.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_footers.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_forms.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_input-group.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_list-group.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_modals.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_msc.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_navbars.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_pagination.scss" />
+    <Content Include="assents_admin\MDB\scss\free\_tables.scss" />
+    <Content Include="assents_admin\MDB\scss\mdb.scss" />
+    <Content Include="assents_admin\MDB\scss\_custom.scss" />
+    <Content Include="assents_home\css\includes\product.scss" />
+    <Content Include="assents_home\css\includes\_bag.scss" />
+    <Content Include="assents_home\css\includes\_bissness.scss" />
+    <Content Include="assents_home\css\includes\_clothing.scss" />
+    <Content Include="assents_home\css\includes\_index.scss" />
+    <Content Include="assents_home\css\includes\_login.scss" />
+    <Content Include="assents_home\css\includes\_pants.scss" />
+    <Content Include="assents_home\css\style.css.map" />
+    <Content Include="assents_home\css\style.scss" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Bold.eot" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Bold.ttf" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Bold.woff" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Bold.woff2" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Light.eot" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Light.ttf" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Light.woff" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Light.woff2" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Medium.eot" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Medium.ttf" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Medium.woff" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Medium.woff2" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Regular.eot" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Regular.ttf" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Regular.woff" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Regular.woff2" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Thin.eot" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Thin.ttf" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Thin.woff" />
+    <Content Include="assents_home\MDB\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="assents_home\MDB\License.pdf" />
+    <Content Include="assents_home\MDB\scss\core\bootstrap\_functions.scss" />
+    <Content Include="assents_home\MDB\scss\core\bootstrap\_variables.scss" />
+    <Content Include="assents_home\MDB\scss\core\_colors.scss" />
+    <Content Include="assents_home\MDB\scss\core\_global.scss" />
+    <Content Include="assents_home\MDB\scss\core\_helpers.scss" />
+    <Content Include="assents_home\MDB\scss\core\_masks.scss" />
+    <Content Include="assents_home\MDB\scss\core\_mixins.scss" />
+    <Content Include="assents_home\MDB\scss\core\_typography.scss" />
+    <Content Include="assents_home\MDB\scss\core\_variables.scss" />
+    <Content Include="assents_home\MDB\scss\core\_waves.scss" />
+    <Content Include="assents_home\MDB\scss\free\_animations-basic.scss" />
+    <Content Include="assents_home\MDB\scss\free\_animations-extended.scss" />
+    <Content Include="assents_home\MDB\scss\free\_badges.scss" />
+    <Content Include="assents_home\MDB\scss\free\_buttons.scss" />
+    <Content Include="assents_home\MDB\scss\free\_cards.scss" />
+    <Content Include="assents_home\MDB\scss\free\_carousels.scss" />
+    <Content Include="assents_home\MDB\scss\free\_dropdowns.scss" />
+    <Content Include="assents_home\MDB\scss\free\_footers.scss" />
+    <Content Include="assents_home\MDB\scss\free\_forms.scss" />
+    <Content Include="assents_home\MDB\scss\free\_input-group.scss" />
+    <Content Include="assents_home\MDB\scss\free\_list-group.scss" />
+    <Content Include="assents_home\MDB\scss\free\_modals.scss" />
+    <Content Include="assents_home\MDB\scss\free\_msc.scss" />
+    <Content Include="assents_home\MDB\scss\free\_navbars.scss" />
+    <Content Include="assents_home\MDB\scss\free\_pagination.scss" />
+    <Content Include="assents_home\MDB\scss\free\_tables.scss" />
+    <Content Include="assents_home\MDB\scss\mdb.scss" />
+    <Content Include="assents_home\MDB\scss\_custom.scss" />
+    <Content Include="Areas\Admins\Views\web.config" />
+    <Content Include="Areas\Admins\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Subcategories\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Subcategories\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\Subcategories\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\Subcategories\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Subcategories\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Colors\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Colors\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\Colors\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Colors\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Sizes\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Sizes\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\Sizes\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Sizes\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\InnerSubcategry\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\InnerSubcategry\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\InnerSubcategry\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\InnerSubcategry\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\InnerSubcategry\Index.cshtml" />
+    <EntityDeploy Include="Models\FinalProjectModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FinalProjectModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FinalProjectModel.edmx.diagram">
+      <DependentUpon>FinalProjectModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Partials\Menu.cshtml" />
+    <Content Include="Views\LoginRegister\Index.cshtml" />
+    <Content Include="Views\Business\Index.cshtml" />
+    <Content Include="Views\Business\Create.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
+    <Content Include="Views\Home\Subcategory.cshtml" />
+    <Content Include="Views\Home\InnerSub.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Business\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51463</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51463/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

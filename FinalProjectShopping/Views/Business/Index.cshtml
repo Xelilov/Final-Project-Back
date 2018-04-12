@@ -1,0 +1,149 @@
+﻿@model FinalProjectShopping.Models.BusinessModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/assents_home/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/assents_home/owl/owl.carousel.min.css">
+
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+    <link href="~/assents_home/js/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assents_home/MDB/css/mdb.min.css">
+
+
+</head>
+<body>
+
+
+
+    <section id="bissnes_header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="_go_index">
+                        <a href="/Home/Index"><img src="~/assents_home/images/Example.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-right">
+                    <div class="_bisnes_icon">
+                        <a href="LoginRegister/LogOut"><i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <<<<<<<<<<<<<<<<< product List>>>>>>>>>>>  -->
+
+    <section id="_product_datatables">
+        <div class="container-fluid">
+            <button class="btn btn-primary">@Html.ActionLink("New Product", "Create") </button>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-table"></i> Data Table Example
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr class="table-success">
+                                    <th>Name</th>
+                                    <th>Discount</th>
+                                    <th>Count</th>
+                                    <th>Price</th>
+                                    <th>Discount Price</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr class="table-success">
+                                    <th>Name</th>
+                                    <th>Discount</th>
+                                    <th>Count</th>
+                                    <th>Price</th>
+                                    <th>Discount Price</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </tfoot>
+                            
+                            <tbody>
+                                @foreach (var item in Model._product)
+                                {
+                                    <tr>
+                                        <td>@item.product_name</td>
+                                        <td>Deactive</td>
+                                        <td>
+                                            count
+                                        </td>
+                                        <td>@item.product_price</td>
+                                        <td>@item.product_discount_rate</td>
+                                        <td>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete
+                                            </button>
+                                            <a class="btn btn-success" href="@Url.Action("Edit","Business",new { id=item.product_id})">Edit</a>
+
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="exampleModalLongTitle">Are you sure want to delete?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h5>@item.product_name will be deleted!!!</h5>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                                                            <a href="@Url.Action("Delete","Business",new { id=item.product_id})" class="btn btn-danger">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="~/assents_home/owl/owl.carousel.min.js"></script>
+
+    <script src="~/assents_home/js/datatables/jquery.dataTables.js"></script>
+    <script src="~/assents_home/js/datatables/dataTables.bootstrap4.js"></script>
+    <script src="~/assents_home/js/datatables/sb-admin-datatables.js"></script>
+    <script src="~/assents_home/js/datatables/sb-admin-datatables.min.js"></script>
+
+
+    <script src="~/assents_home/js/script.js"></script>
+
+    <script type="text/javascript" scr="~/assents_home/MDB/js/mdb.min.js"> </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinalProjectModelStoreContainer" CdmEntityContainer="FinalProjectEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="FinalProjectModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+          <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+          <ScalarProperty Name="asmin_password" ColumnName="asmin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusinessAccounts">
+      <EntityTypeMapping TypeName="FinalProjectModel.BusinessAccount">
+        <MappingFragment StoreEntitySet="BusinessAccount">
+          <ScalarProperty Name="business_id" ColumnName="business_id" />
+          <ScalarProperty Name="business_name" ColumnName="business_name" />
+          <ScalarProperty Name="business_email" ColumnName="business_email" />
+          <ScalarProperty Name="business_password" ColumnName="business_password" />
+          <ScalarProperty Name="business_phone" ColumnName="business_phone" />
+          <ScalarProperty Name="business_location" ColumnName="business_location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="FinalProjectModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="FinalProjectModel.Color">
+        <MappingFragment StoreEntitySet="Colors">
+          <ScalarProperty Name="color_id" ColumnName="color_id" />
+          <ScalarProperty Name="color_name" ColumnName="color_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InnerSubcategories">
+      <EntityTypeMapping TypeName="FinalProjectModel.InnerSubcategory">
+        <MappingFragment StoreEntitySet="InnerSubcategory">
+          <ScalarProperty Name="innersubcategory_id" ColumnName="innersubcategory_id" />
+          <ScalarProperty Name="innersubcategory_name" ColumnName="innersubcategory_name" />
+          <ScalarProperty Name="innersubcategory_subcategory_id" ColumnName="innersubcategory_subcategory_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="FinalProjectModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="product_category_id" ColumnName="product_category_id" />
+          <ScalarProperty Name="product_subcategory_id" ColumnName="product_subcategory_id" />
+          <ScalarProperty Name="product_innersubcategory_id" ColumnName="product_innersubcategory_id" />
+          <ScalarProperty Name="product_discount_rate" ColumnName="product_discount_rate" />
+          <ScalarProperty Name="product_discount_time" ColumnName="product_discount_time" />
+          <ScalarProperty Name="product_business_id" ColumnName="product_business_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductImages">
+      <EntityTypeMapping TypeName="FinalProjectModel.ProductImage">
+        <MappingFragment StoreEntitySet="ProductImage">
+          <ScalarProperty Name="product_img_count" ColumnName="product_img_count" />
+          <ScalarProperty Name="product_img_id" ColumnName="product_img_id" />
+          <ScalarProperty Name="product_img" ColumnName="product_img" />
+          <ScalarProperty Name="product_img_product_id" ColumnName="product_img_product_id" />
+          <ScalarProperty Name="product_img_color_id" ColumnName="product_img_color_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPivotSizes">
+      <EntityTypeMapping TypeName="FinalProjectModel.ProductPivotSize">
+        <MappingFragment StoreEntitySet="ProductPivotSize">
+          <ScalarProperty Name="product_pivot_id" ColumnName="product_pivot_id" />
+          <ScalarProperty Name="product_pivot_img_id" ColumnName="product_pivot_img_id" />
+          <ScalarProperty Name="product_pivot_size_id" ColumnName="product_pivot_size_id" />
+          <ScalarProperty Name="product_pivot_count" ColumnName="product_pivot_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sizes">
+      <EntityTypeMapping TypeName="FinalProjectModel.Size">
+        <MappingFragment StoreEntitySet="Size">
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="size_name" ColumnName="size_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subcategories">
+      <EntityTypeMapping TypeName="FinalProjectModel.Subcategory">
+        <MappingFragment StoreEntitySet="Subcategory">
+          <ScalarProperty Name="subcategory_id" ColumnName="subcategory_id" />
+          <ScalarProperty Name="subcategory_name" ColumnName="subcategory_name" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccounts">
+      <EntityTypeMapping TypeName="FinalProjectModel.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

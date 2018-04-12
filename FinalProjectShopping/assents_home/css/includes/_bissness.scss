@@ -1,0 +1,33 @@
+
+
+tr th:last-child{
+	width: 300px;
+}
+
+tr td:last-child{
+	width: 300px;
+}
+
+#bissnes_header{
+	padding: 20px 0px;
+	._go_index{
+		img{
+			width: 200px;
+			height: 60px;
+		}
+	}
+	._bisnes_icon{
+		font-size: 40px;
+		cursor: pointer;
+
+	}
+}
+#_product_datatables{
+
+	label{
+		margin-top: 10px;
+	}
+	.dataTables_info{
+		margin-bottom: 10px;
+	}
+}

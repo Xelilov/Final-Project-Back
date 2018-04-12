@@ -1,0 +1,177 @@
+﻿
+
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/assents_home/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/assents_home/owl/owl.carousel.min.css">
+
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assents_home/MDB/css/mdb.min.css">
+
+
+</head>
+<body>
+
+
+    <!-- <<============================ Login ============================>> -->
+    <section id="_login_id">
+        <div class="row justify-content-center">
+            <div class="_logo_site">
+                <a href="/Home/Index"><img src="~/assents_home/images/Example.png" alt=""></a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="_login">
+                <ul class="nav nav-tabs _login_register_tabs" id="myTab" role="tablist">
+
+                    <!-- <<<<<<<<<<<<<<<<<<< Sign IN Tabs >>>>>>>>>>>>>>>>>>> -->
+                    <li class="nav-item">
+                        <a class="nav-link active btn btn-default" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Sign In</a>
+                    </li>
+
+                    <!-- <<<<<<<<<<<<<<<<<<< Register tabs >>>>>>>>>>>>>>>>>>> -->
+                    <li class="nav-item _register_tabs">
+                        <a class="nav-link btn btn-default " id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+
+                        <!-- <<<<<<<<<<<<<<<<<<< Login Form >>>>>>>>>>>>>>>>>>> -->
+                        <form method="post" action="@Url.Action("LogIn","LogInRegister")">
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="email" id="materialFormLoginEmailEx" name="email" class="form-control" placeholder="Your email">
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix grey-text"></i>
+                                <input type="password" id="materialFormLoginPasswordEx" name="password" class="form-control" placeholder="Your password">
+                            </div>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-default" type="submit">Login</button>
+                            </div>
+                        </form>
+                        <!-- <<<<<<<<<<<<<<<<<<< End Login Form >>>>>>>>>>>>>>>>>>> -->
+
+                    </div>
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        <ul class="nav nav-tabs _registr_tabs" id="myTab" role="tablist">
+
+                            <!-- <<<<<<<<<<<<<<<<<<< Personal tabs >>>>>>>>>>>>>>>>>>> -->
+
+                            <li class="nav-item">
+                                <a class="nav-link active btn btn-blue-grey" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">personal</a>
+                            </li>
+
+                            <!-- <<<<<<<<<<<<<<<<<<< Business tabs >>>>>>>>>>>>>>>>>>> -->
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-blue-grey" id="bisnes-tab" data-toggle="tab" href="#bisnes" role="tab" aria-controls="bisnes" aria-selected="false">Business</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+
+
+                                <!-- <<<<<<<<<<<<<<<<<< Personal Register Form >>>>>>>>>>>>>>>>>> -->
+                                @using (Html.BeginForm("User_register", "LoginRegister",FormMethod.Post))
+                                {
+                                <form>
+                                    <div class="md-form">
+                                        <i class="fa fa-user prefix grey-text"></i>
+                                        <input type="text" id="user_name" class="form-control" placeholder="Your name" name="user_name">                                        
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+                                        <input type="email" id="user_email" class="form-control" placeholder="Your email"name="user_email">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+                                        <input type="password"  id="user_password" class="form-control" placeholder="Your password" name="user_password">
+                                        <span id="user_passLength"></span>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+                                        <input type="password" id="user_confirm_password" class="form-control" placeholder="Confirm your password" name="user_confirm_pass">
+                                        <span id="message"></span>
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <button class="btn btn-primary" type="submit">Register</button>
+                                    </div>
+                                </form>
+                                }
+                                <!-- <<<<<<<<<<<<<<<<<< End Personal Register Form >>>>>>>>>>>>>>>>>> -->
+                            </div>
+                            <div class="tab-pane fade" id="bisnes" role="tabpanel" aria-labelledby="bisnes-tab">
+
+
+                                <!-- <<<<<<<<<<<<<<<<<< Business Register Form >>>>>>>>>>>>>>>>>> -->
+                                @using (Html.BeginForm("Business_register", "LoginRegister", FormMethod.Post))
+                                {
+                                <form>
+                                    <div class="md-form">
+                                        <i class="fa fa-user prefix grey-text"></i>
+                                        <input type="text" id="business_name" class="form-control" placeholder="Your business name" name="business_name">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+                                        <input type="email" id="business_email" class="form-control" placeholder="Your business email" name="business_email">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+                                        <input type="password" id="business_password" class="form-control" placeholder="Your password" name="business_password">
+                                        <span id="_password_length"></span>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+                                        <input type="password" id="business_confirm_pass" class="form-control" placeholder="Confirm your password" name="business_confirm_pass">
+                                        <span id="mssg"></span>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-phone prefix grey-text"></i>
+                                        <input type="text" id="business_phone" class="form-control" placeholder="Your business phone" name="business_phone">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-user prefix grey-text"></i>
+                                        <input type="text" id="business_location" class="form-control" placeholder="Your business location" name="business_location">
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <button class="btn btn-primary" type="submit">Register</button>
+                                    </div>
+                                </form>
+                                }
+                                <!-- <<<<<<<<<<<<<<<<<< End Business Register Form >>>>>>>>>>>>>>>>>> -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="~/assents_home/owl/owl.carousel.min.js"></script>
+    <script src="~/assents_home/js/script.js"></script>
+
+    <script type="text/javascript" scr="~/assents_home/MDB/js/mdb.min.js"> </script>
+
+</body>
+</html>

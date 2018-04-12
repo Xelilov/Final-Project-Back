@@ -1,0 +1,30 @@
+
+
+
+
+/*<<=============clothing item blog=============>>*/
+
+#clothing_content{	
+	a{
+		@include item_text_decor;
+		@include item_text_color; 
+	}
+}
+
+._mini_carousel{
+	margin-top: 50px;
+}
+
+._cl_category{
+	@include border_bottom_category_line;
+	a{
+		color: blue!important;
+	}
+	
+}
+._cl_sub_categoty{
+	ul{
+		@include li_decor;
+	}
+}
+

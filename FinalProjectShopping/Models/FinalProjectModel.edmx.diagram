@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce04c97bc5bc41be915fafdd04dea106" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalProjectModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.BusinessAccount" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.Category" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.Color" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.InnerSubcategory" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.Product" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.ProductImage" Width="2" PointX="9.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.ProductPivotSize" Width="1.5" PointX="12" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.Size" Width="1.5" PointX="9.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.Subcategory" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.UserAccount" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="FinalProjectModel.FK_Product_BusinessAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_Subcategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_ProductImage_Colors" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_InnerSubcategory_Subcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_Product_InnerSubcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_Product_Subcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_ProductImage_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_ProductPivotSize_ProductImage" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel.FK_ProductPivotSize_Size" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

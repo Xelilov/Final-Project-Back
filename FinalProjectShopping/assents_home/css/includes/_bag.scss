@@ -1,0 +1,56 @@
+/*<<<<<<<<<<<<<<<Bag>>>>>>>>>>>>>>>>*/
+
+
+#_bag_content{
+	h2, h5{
+		padding: 10px 0px;
+	}
+}
+
+._bag_content{
+	border: 2px solid grey;
+	padding: 15px;
+	margin: 20px 0px;
+	._buy{
+		margin-top: 55%;
+	}
+}
+._bag_empty{
+	width: 700px;
+	margin-top: 100px;
+	._text_header{
+		margin-bottom: 60px;
+	}
+}
+
+
+._bag_quantity{
+	margin-left: -5px;
+	padding: 10px 0px;
+	._quantity_content{
+		margin-left: 50px;
+		margin-top: 10px;
+	}
+	.quantity-left-minus{
+		max-height: 0px;
+	    min-height: 0px;
+	    line-height: 0px;
+	    padding: 15px 18px!important;
+	}
+
+	.quantity-right-plus{
+		max-height: 0px;
+	    min-height: 0px;
+	    line-height: 0px;
+	    padding: 15px 18px!important;
+	}
+	._quantity_input{
+		margin-top: 6px;
+		width: 50px;
+	    height: 30px;
+	}
+	._quantity_margin{
+		margin-left: -15px;
+	}
+}
+	

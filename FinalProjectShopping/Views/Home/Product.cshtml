@@ -1,0 +1,339 @@
+﻿@model FinalProjectShopping.Models.CategoryHtmlVM
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!-- <========================= Product  ========================> -->
+
+    <section>
+        <div class="container-fluid">
+            <div class="_cl_product_search_list">
+                <div class="row">
+                    <div>
+                        <h6><a href="#"> < Bact To Search List</a></h6>
+                    </div>
+                    <div class="_cl_list_category">
+                        <h6>Listed in category: <a href="clothing.html">Clothing</a><a href="manclothing.html"> > man</a><a href="pants.html"> > pants</a></h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="_cl_product_img">
+                            <img src="@ViewBag.img[0].product_img" alt="" width="100%">
+                        </div>
+                        <div class="_cl_product_img_list">
+                            <div class="row">                                
+                                @foreach (var img_item in ViewBag.img)
+                                {
+                                    <div class="col-md-3">
+                                        <div>
+                                            <img src="@img_item.product_img" alt="" width="100%">
+                                        </div>
+                                    </div>
+                                }                                
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="_cl_product_name">
+                            <h3>@Model._oneproduct.product_name</h3>
+                        </div>
+                        <div class="container">
+                            <div class="_product_price_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="text-right">
+                                            <p>Price:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <h4 class="_cl_price_text_decor">@Model._oneproduct.product_price $</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_sale_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="text-right">
+                                            <p>Discount Price:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <h3>00.00$</h3>
+                                                <h3 class="_cl_sale_color">12%</h3>
+                                                <h3 class="_cl_sale_color">00-00-00</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_color_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="text-right">
+                                            <p>Color:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: none;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: red;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: yellow;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: green;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: brown;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: blue;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: black;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: red;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: yellow;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: green;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: brown;"></div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_color" style="background-color: blue;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_size_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="text-right">
+                                            <p>Size:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_size">XS</div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_size">S</div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_size">M</div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_size">L</div>
+                                                </div>
+                                                <div class=" col-sm-2 col col-lg-1">
+                                                    <div class="_product_size">XL</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_shipping_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="text-right">
+                                            <p>Shipping:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <p>FREE Economy International Shipping</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="_cl_product_shipping">Item location:</p>
+                                                <p class="_cl_product_shipping _cl_product_location">Kansas, USA</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="_cl_product_shipping">Estimated Delivery Time:</p>
+                                                <p class="_cl_product_shipping _cl_product_shipping_day"> 00 - 00 days</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_quantity_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="text-right">
+                                            <p class="_quantity_text">Quantity:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="input-group  _quantity_margin">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="quantity-left-minus  btn btn-secondary" data-type="minus" data-field="">
+                                                                -
+                                                            </button>
+                                                        </span>
+                                                        <input type="number" id="quantity" name="quantity" class="input-number text-center _quantity_input" value="1" min="1" max="100">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="quantity-right-plus btn btn-secondary" data-type="plus" data-field="">
+                                                                +
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <p class="_quantity_content">pieces (1 pieces available)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_totalprice_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2 ">
+                                        <div class="text-right">
+                                            <p>Total Price:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10 ">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <h4>00.00$</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_button_content">
+                                <div class="row">
+                                    <div class="_cl_button">
+                                        <button class="btn btn-default waves-effect waves-light">Buy Now</button>
+                                        <button class="btn btn-primary waves-effect waves-light">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_product_payments_content">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2">
+                                        <div class="text-right">
+                                            <p class="_payments_text_margin">Payments:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10 ">
+                                        <div class="text-left _text_lefts_margin">
+                                            <div class="row">
+                                                <div><img src="images/pay01.png" alt="" class="_payments_img"></div>
+                                                <div><img src="images/pay02.png" alt="" class="_payments_img"></div>
+                                                <div><img src="images/pay03.png" alt="" class="_payments_img"></div>
+                                                <div><img src="images/pay04.png" alt="" class="_payments_img"></div>
+                                                <div><img src="images/pay05.ico" alt="" class="_payments_img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="_product_other">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="#">
+                            <div class="_item text-center">
+                                <div class="_item_opacity"></div>
+                                <img src="images/3x4.jpg" alt="" width="100%">
+                                <h5>test</h5>
+                                <p>00.00</p>
+                                <button class="_item_button">View</button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#">
+                            <div class="_item text-center">
+                                <div class="_item_opacity"></div>
+                                <img src="images/3x4.jpg" alt="" width="100%">
+                                <h5>test</h5>
+                                <p>00.00</p>
+                                <button class="_item_button">View</button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#">
+                            <div class="_item text-center">
+                                <div class="_item_opacity"></div>
+                                <img src="images/3x4.jpg" alt="" width="100%">
+                                <h5>test</h5>
+                                <p>00.00</p>
+                                <button class="_item_button">View</button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#">
+                            <div class="_item text-center">
+                                <div class="_item_opacity"></div>
+                                <img src="images/3x4.jpg" alt="" width="100%">
+                                <h5>test</h5>
+                                <p>00.00</p>
+                                <button class="_item_button">View</button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#">
+                            <div class="_item text-center">
+                                <div class="_item_opacity"></div>
+                                <img src="images/3x4.jpg" alt="" width="100%">
+                                <h5>test</h5>
+                                <p>00.00</p>
+                                <button class="_item_button">View</button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#">
+                            <div class="_item text-center">
+                                <div class="_item_opacity"></div>
+                                <img src="images/3x4.jpg" alt="" width="100%">
+                                <h5>test</h5>
+                                <p>00.00</p>
+                                <button class="_item_button">View</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+

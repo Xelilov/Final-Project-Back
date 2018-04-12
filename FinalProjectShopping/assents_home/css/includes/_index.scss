@@ -1,0 +1,156 @@
+
+
+
+/*<<=============Header=============>>*/
+
+#header{
+	@include header_footer_color;
+	img{
+		width: 200px;
+		height: 50px;
+		margin-top: 10px;
+	}
+	._header_icons{
+		font-size: 20px;
+		padding-top: 20px;
+		._user_bag{
+			margin-right: 30px;
+			color: red;
+		}
+		a{
+			color: white;
+		}
+	}
+}
+.navbar{
+	box-shadow: 0 0 0 0!important;
+	
+}
+@media(max-width: 991px){
+	.navbar{
+		padding-bottom: 50px;
+	}
+}
+
+
+._navbar_color{
+	@include header_footer_color;	
+}
+.nav-link{
+	@include color_text_menu;
+	background-color: rgba(0,0,0,0)!important;
+	
+}
+.navbar-collapse ul li:hover>a{
+	@include hover_color_menu;
+}
+
+
+/*<<=============Slider=============>>*/
+.cl_im_height{
+	height: 100%;
+}
+.cl_bs_item_height{
+	height: 600px;
+}
+.owl-theme{
+	position: relative;
+}
+.owl-prev{
+	display: none;
+	position: absolute;
+	left: 1%;
+	top: 45%
+
+}
+.owl-next{
+	display: none;
+	position: absolute;
+	right: 1%;
+	top: 45%;
+}
+
+
+
+@media(max-width: 992px) {
+	.cl_bs_item_height{
+		height: 450px;
+	}
+}
+@media(max-width: 880px) {
+	.cl_bs_item_height{
+		height: 350px;
+	}
+}
+@media(max-width: 770px) {
+	.cl_bs_item_height{
+		height: 280px;
+	}
+}
+@media(max-width: 660px) {
+	.cl_bs_item_height{
+		height: 210px;
+	}
+}
+@media(max-width: 550px) {
+	.cl_bs_item_height{
+		height: 160px;
+	}
+}
+@media(max-width: 480px) {
+	.cl_bs_item_height{
+		height: 120px;
+	}
+}
+
+
+/*<<=============Middle Menu=============>>*/
+
+
+#middle_menu{
+	margin-top: 50px;
+}
+._rov_margin{
+	margin:0;
+}
+._col_padding{
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+._cl_zoom{
+	transition: 0.3s linear;
+}
+._cl_zoom:hover{
+	transform: scale(1.1,1.1);
+	transition: 0.3s linear;
+}
+
+
+/*<<=============Item Blog=============>>*/
+
+#item_blog{
+	margin-top: 50px;
+	a{
+		@include item_text_decor;
+		@include item_text_color;
+	}
+}
+
+
+/*<<=============Footer=============>>*/
+
+
+
+._footer_color{
+	@include header_footer_color;
+}
+._icon_padding{
+	padding: 10px;
+
+}
+._icon_color{
+	color: white;
+	font-size: 50px;
+	margin-left: 10px;	
+}
