@@ -8,8 +8,18 @@
                 </div>
                 <div class="col-md-6 text-right">
                     <div class="_header_icons">
-                        <a class="_user_bag" href="bag.html"><i class="fas fa-shopping-bag"></i></a>
-                        <a href="/LoginRegister/Index"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a class="_user_bag" href="/UserBag/Index"><i class="fas fa-shopping-bag"></i></a>
+                        @if (ViewBag.login==null)
+	                    {
+                            
+                            <a href="/LoginRegister/Index"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        }
+                        else {
+                            <span style="color:white; margin-right:10px;">@ViewBag.login</span>
+                            <a href="/LoginRegister/UserLogOut"> <i class="fas fa-sign-in-alt"></i> Logout</a>
+                        }
+
+
                     </div>
                 </div>
             </div>

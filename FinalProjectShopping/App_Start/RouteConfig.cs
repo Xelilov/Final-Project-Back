@@ -18,6 +18,16 @@ namespace FinalProjectShopping
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "getSizeCount",
+                url: "{controller}/{action}/{img_id}/{size_id}",
+                defaults: new { controller = "Home", action = "getSizeCount" }
+            );
+            //routes.MapRoute(
+            //    name: "Minprice",
+            //    url: "{controller}/{action}/{minprice}/{innerid}",
+            //    defaults: new { controller = "Home", action = "Minprice" }
+            //);
         }
     }
 }

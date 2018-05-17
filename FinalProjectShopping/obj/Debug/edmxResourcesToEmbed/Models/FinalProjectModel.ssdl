@@ -99,6 +99,17 @@
     <Property Name="user_email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="user_password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserBag">
+    <Key>
+      <PropertyRef Name="user_bag_id" />
+    </Key>
+    <Property Name="user_bag_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_bag_user_id" Type="int" Nullable="false" />
+    <Property Name="user_bag_product_id" Type="int" Nullable="false" />
+    <Property Name="user_bag_product_img_id" Type="int" Nullable="false" />
+    <Property Name="user_bag_product_pivot_id" Type="int" />
+    <Property Name="user_bag_product_count" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="FK_InnerSubcategory_Subcategory">
     <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="1" />
     <End Role="InnerSubcategory" Type="Self.InnerSubcategory" Multiplicity="*" />
@@ -219,6 +230,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserBag_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="UserBag" Type="Self.UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserBag_ProductImage">
+    <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="1" />
+    <End Role="UserBag" Type="Self.UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductImage">
+        <PropertyRef Name="product_img_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_product_img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserBag_ProductPivotSize">
+    <End Role="ProductPivotSize" Type="Self.ProductPivotSize" Multiplicity="0..1" />
+    <End Role="UserBag" Type="Self.UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductPivotSize">
+        <PropertyRef Name="product_pivot_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_product_pivot_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserBag_UserAccount">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
+    <End Role="UserBag" Type="Self.UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="FinalProjectModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BusinessAccount" EntityType="Self.BusinessAccount" Schema="dbo" store:Type="Tables" />
@@ -231,6 +290,7 @@
     <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subcategory" EntityType="Self.Subcategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserBag" EntityType="Self.UserBag" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_InnerSubcategory_Subcategory" Association="Self.FK_InnerSubcategory_Subcategory">
       <End Role="Subcategory" EntitySet="Subcategory" />
       <End Role="InnerSubcategory" EntitySet="InnerSubcategory" />
@@ -270,6 +330,22 @@
     <AssociationSet Name="FK_Subcategory_Category" Association="Self.FK_Subcategory_Category">
       <End Role="Category" EntitySet="Category" />
       <End Role="Subcategory" EntitySet="Subcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserBag_Product" Association="Self.FK_UserBag_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="UserBag" EntitySet="UserBag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserBag_ProductImage" Association="Self.FK_UserBag_ProductImage">
+      <End Role="ProductImage" EntitySet="ProductImage" />
+      <End Role="UserBag" EntitySet="UserBag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserBag_ProductPivotSize" Association="Self.FK_UserBag_ProductPivotSize">
+      <End Role="ProductPivotSize" EntitySet="ProductPivotSize" />
+      <End Role="UserBag" EntitySet="UserBag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserBag_UserAccount" Association="Self.FK_UserBag_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="UserBag" EntitySet="UserBag" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

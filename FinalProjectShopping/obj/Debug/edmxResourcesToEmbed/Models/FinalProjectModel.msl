@@ -111,5 +111,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserBags">
+      <EntityTypeMapping TypeName="FinalProjectModel.UserBag">
+        <MappingFragment StoreEntitySet="UserBag">
+          <ScalarProperty Name="user_bag_product_count" ColumnName="user_bag_product_count" />
+          <ScalarProperty Name="user_bag_product_pivot_id" ColumnName="user_bag_product_pivot_id" />
+          <ScalarProperty Name="user_bag_product_img_id" ColumnName="user_bag_product_img_id" />
+          <ScalarProperty Name="user_bag_product_id" ColumnName="user_bag_product_id" />
+          <ScalarProperty Name="user_bag_user_id" ColumnName="user_bag_user_id" />
+          <ScalarProperty Name="user_bag_id" ColumnName="user_bag_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

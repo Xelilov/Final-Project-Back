@@ -12,5 +12,7 @@ namespace FinalProjectShopping.Models
         public List<InnerSubcategory> _innersub { get; set; }
         public List<Product> _product { get; set; }
         public Product _oneproduct { get; set; }
+        public List<Size> _size { get; set; }
+        public List<Color> _color { get; set; }
     }
 }

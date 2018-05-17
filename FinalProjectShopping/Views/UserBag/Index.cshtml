@@ -1,0 +1,109 @@
+﻿@model FinalProjectShopping.Models.UserBagModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model._user != null)
+{
+
+    if (Model._user_bag != null)
+    {
+        foreach (var item in Model._user_bag)
+        {
+            <section id="_bag_content">
+                <div class="container-fluid">
+                    <div class="_bag_content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div>
+                                    <img src="@item.ProductImage.product_img" alt="" width="100%">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>@item.Product.product_name</h2>
+                                <h4>@item.Product.product_price $</h4>
+                                <h5>Color: @item.ProductImage.Color.color_name </h5>
+                                @if (item.user_bag_product_pivot_id != null)
+                                {
+                                    <h5>Size:@item.ProductPivotSize.Size.size_name</h5>
+                                }
+
+                                <div class="_bag_quantity">
+                                    <div class="text-left _text_lefts_margin">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="input-group  _quantity_margin">
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="quantity-minus   btn btn-secondary" data-type="minus" data-field="">
+                                                            -
+                                                        </button>
+                                                    </span>
+                                                    <input type="number" id="quantity" name="quantity" class="input-number text-center _quantity_input" value="1">
+                                                    <span class="input-group-btn">
+                                                        <button type="button" data-attr="@item.user_bag_product_count" class="quantity-plus btn btn-secondary" data-type="plus" data-field="">
+                                                            +
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="_quantity_content">pieces (@item.user_bag_product_count pieces available)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn btn-danger" href="@Url.Action("Delete", "UserBag", new { id = item.user_bag_id })">remove</a>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="_buy btn btn-primary">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    }
+    else 
+    {
+        <section>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="_bag_empty">
+                        <div class="text-center _text_header">
+                            <h1>Your Shopping Cart</h1>
+                        </div>
+                        <h3>Your shopping cart is empty, but it doesn't have to be.</h3>
+                        <p>There are lots of great deals and one-of-a-kind items just waiting for you.</p>
+                        <p>Start shopping, and look for the "Add to cart" button. You can add several items to your cart from different sellers and pay for them all at once.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    
+
+}
+else
+{
+    <section>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="_bag_empty">
+                    <div class="text-center _text_header">
+                        <h1>Your Shopping Cart</h1>
+                    </div>
+                    <h3>Your shopping cart is empty, but it doesn't have to be.</h3>
+                    <p>There are lots of great deals and one-of-a-kind items just waiting for you.</p>
+                    <p>Start shopping, and look for the "Add to cart" button. You can add several items to your cart from different sellers and pay for them all at once.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+
+
+

@@ -18,6 +18,7 @@ namespace FinalProjectShopping.Models
         public Product()
         {
             this.ProductImages = new HashSet<ProductImage>();
+            this.UserBags = new HashSet<UserBag>();
         }
     
         public int product_id { get; set; }
@@ -36,5 +37,7 @@ namespace FinalProjectShopping.Models
         public virtual Subcategory Subcategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductImage> ProductImages { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserBag> UserBags { get; set; }
     }
 }

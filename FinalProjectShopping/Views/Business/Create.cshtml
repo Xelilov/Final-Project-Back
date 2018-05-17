@@ -28,31 +28,21 @@
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select class="form-control" id="category" name="product_category_id">
-                          <option value="0">>>Select<<</option>
+                        <option selected="selected" disabled="disabled">>>Select<<</option>
                         @foreach (var category_item in Model._category)
-                         {
-                            <option value="@category_item.category_id">@category_item.category_name</option>
-                         }
+                        {
+                            <option  value="@category_item.category_id">@category_item.category_name</option>
+                        }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="subcategory">Subcategory</label>
                     <select class="form-control" id="subcategory" name="product_subcategory_id">
-                        <option value="0">>>Select<<</option>
-                        @foreach (var subcategory_item in Model._subcategory)
-                         {
-                            <option value="@subcategory_item.subcategory_id">@subcategory_item.subcategory_name</option>
-                         }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="Iinersubcategory">Innersubcategory</label>
-                    <select class="form-control" id="innersubcategory" name="product_innersubcategory_id">
-                        <option value="0">>>Select<<</option>
-                        @foreach (var innersubcategory_item in Model._innersubcategory)
-                        {
-                        <option value="@innersubcategory_item.innersubcategory_id">@innersubcategory_item.innersubcategory_name</option>
-                        }
+                    <select class="form-control" id="innersubcategory" name="product_innersubcategory_id">                        
                     </select>
                 </div>
                 <div id="cloned" class="row UploadFileAndColor">
@@ -63,7 +53,7 @@
                     <div class="form-group col-3">
                         <label for="color">Color</label>
                         <select class="form-control" name="colorId" id="color">
-                            <option value="0">>>Select<<</option>
+                            <option selected="selected" disabled="disabled">>>Select<<</option>
                             @foreach (var color_item in Model._product_color)
                             {
                                 <option value="@color_item.color_id">@color_item.color_name</option>
@@ -77,18 +67,18 @@
                     <div class="col-5" id="size">
                         <div class="row">
                             @foreach (var size_item in Model._size)
-                             {
+                            {
                                 <div class="form-check col-6 ">
                                     <input type="checkbox" class="form-check-input product_size" name="product_size" value="@size_item.size_id">
-                                    <label class="form-check-label" for="product_size">@size_item.size_name</label>                                    
+                                    <label class="form-check-label" for="product_size">@size_item.size_name</label>
                                 </div>
-                                <div class="form-group col-6">                                    
+                                <div class="form-group col-6">
                                     <input type="text" name="product_size_count" class="form-control" id="product_size_count" aria-describedby="emailHelp" placeholder="Product Count">
                                 </div>
                             }
                         </div>
-                    </div> 
-                    <input style="display:none" type="text" class="checkBoxList" name="checkBoxList_name" /> 
+                    </div>
+                    <input style="display:none" type="text" class="checkBoxList" name="checkBoxList_name" />
                 </div>
             </div>
             <span id="AddNewFile" style="cursor:pointer;" class="pointer  mb-4 btn-primary btn">Add New File</span>
@@ -96,30 +86,61 @@
         </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="  crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $("#AddNewFile").click(function () {
             $("#cloned").clone().appendTo("#contentProduct");
         });
 
 
+
+        $("#category").on("change", function () {
+            var x = $(this).val();
+            $("#subcategory option").remove();
+            $.ajax({
+                url: "/Business/categoty/" + x,
+                method: "GET",
+                type: "text",
+                success: function (response) {
+                    $("#subcategory").append("<option> >>Select<< </option>")
+                    $.each(response, function (index, element) {
+                        $("#subcategory").append("<option value=" + element.subcategory_id + ">" + element.subcategory_name + "</option>")
+                    });
+                }                
+            }) 
+        }) 
+
+        $("#subcategory").on("change", function () {
+            var x = $(this).val();
+            $("#innersubcategory option").remove();
+            $.ajax({
+                url: "/Business/subcategoty/" + x,
+                method: "GET",
+                type: "text",
+                success: function (response) {
+                    $("#innersubcategory").append("<option> >>Select<< </option>")
+                    $.each(response, function (index, element) {
+                        $("#innersubcategory").append("<option value=" + element.innersubcategory_id + ">" + element.innersubcategory_name + "</option>")
+                    });
+                }
+            })
+        })        
+
+
         function test() {
             var clounedElementCount = $('.UploadFileAndColor').length;
             var value = "";
             for (var i = 0; i < clounedElementCount; i++) {
-                var SizeCheckboxesCount = $(".UploadFileAndColor").eq(i).find(".product_size").length; 
-                for (var a = 0; a < SizeCheckboxesCount; a++) { 
-                    if ($(".UploadFileAndColor").eq(i).find(".product_size").eq(a).prop("checked")) { 
-                       value += $(".UploadFileAndColor").eq(i).find(".product_size").eq(a).val();
-                        $(".UploadFileAndColor").eq(i).find(".checkBoxList").val(value); 
-                    } 
-                } 
+                var SizeCheckboxesCount = $(".UploadFileAndColor").eq(i).find(".product_size").length;
+                for (var a = 0; a < SizeCheckboxesCount; a++) {
+                    if ($(".UploadFileAndColor").eq(i).find(".product_size").eq(a).prop("checked")) {
+                        value += $(".UploadFileAndColor").eq(i).find(".product_size").eq(a).val();
+                        $(".UploadFileAndColor").eq(i).find(".checkBoxList").val(value);
+                    }
+                }
                 value = "";
-            }  
+            }
         }
-
-
-
 
         $("#category").change(function () {
             if ($('#category option:selected').text() != "Clothing") {

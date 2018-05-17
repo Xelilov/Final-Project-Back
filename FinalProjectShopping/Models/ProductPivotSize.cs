@@ -14,6 +14,12 @@ namespace FinalProjectShopping.Models
     
     public partial class ProductPivotSize
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProductPivotSize()
+        {
+            this.UserBags = new HashSet<UserBag>();
+        }
+    
         public int product_pivot_id { get; set; }
         public int product_pivot_img_id { get; set; }
         public Nullable<int> product_pivot_size_id { get; set; }
@@ -21,5 +27,7 @@ namespace FinalProjectShopping.Models
     
         public virtual ProductImage ProductImage { get; set; }
         public virtual Size Size { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserBag> UserBags { get; set; }
     }
 }

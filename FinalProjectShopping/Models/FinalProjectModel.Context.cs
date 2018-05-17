@@ -36,5 +36,6 @@ namespace FinalProjectShopping.Models
         public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<Subcategory> Subcategories { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
+        public virtual DbSet<UserBag> UserBags { get; set; }
     }
 }

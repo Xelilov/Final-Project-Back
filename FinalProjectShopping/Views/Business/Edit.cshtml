@@ -1,17 +1,109 @@
-﻿
+﻿@model FinalProjectShopping.Models.ProductEditModel
 @{
     Layout = null;
 }
 
-<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Create</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="~/assents_home/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <div> 
+    <div class="container">
+        <form method="post" action="~/Business/Edit" enctype="multipart/form-data" class="createItemForm">
+            <div id="contentProduct">
+                <div class="form-group">
+                    <input type="hidden" name="id" value="@Model._editproduct.product_id" />
+                    <label for="productname">Product Name</label>
+                    <input type="text" name="product_name" class="form-control" id="productname" aria-describedby="emailHelp" value="@Model._editproduct.product_name">
+                </div>
+                <div class="form-group">
+                    <label for="productprice">Product Price</label>
+                    <input type="text" name="product_price" class="form-control" id="productprice" value="@Model._editproduct.product_price">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="hidden" name="product_category" value="@Model._category.Where(s=>s.category_id==Model._editproduct.product_category_id).First().category_id" />
+                    <input id="category"  class="form-control" type="text" disabled="disabled" value="@Model._category.Where(s=>s.category_id==Model._editproduct.product_category_id).First().category_name">
+                </div>
+                <div class="form-group">
+                    <label for="subcategory">Subcategory</label>
+                    <input type="hidden" name="product_subcategory" value="@Model._subcategory.Where(s=>s.subcategory_id==Model._editproduct.product_subcategory_id).First().subcategory_id" />
+                    <input id="subcategory"  class="form-control" type="text" disabled="disabled" value="@Model._subcategory.Where(s=>s.subcategory_id==Model._editproduct.product_subcategory_id).First().subcategory_name">                       
+                </div>
+                <div class="form-group">
+                    <label for="innersubcategory">Innersubcategory</label>
+                    <input type="hidden" name="product_innersubcategory" value="@Model._innersubcategory.Where(s=>s.innersubcategory_id==Model._editproduct.product_innersubcategory_id).First().innersubcategory_id" />
+                    <input id="innersubcategory"  class="form-control" type="text" disabled="disabled" value="@Model._innersubcategory.Where(s=>s.innersubcategory_id==Model._editproduct.product_innersubcategory_id).First().innersubcategory_name">                    
+                </div>
+                @if (Model._editproduct.product_category_id!=1)
+                {
+                    foreach (var item in Model._editProductImage)
+                    {
+                        <div id="cloned" class="row UploadFileAndColor">
+                        <div class="col-4">                            
+                            <img src="@item.product_img" style="width:100%"/>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="color">Color</label>
+                            <input type="hidden" name="color_id" value="@Model._product_color.Where(s=>s.color_id==item.product_img_color_id).First().color_id" />
+                            <input class="form-control" disabled="disabled" value="@Model._product_color.Where(s=>s.color_id==item.product_img_color_id).First().color_name">                             
+                        </div>
+                        <div class="col-3" id="count">
+                            <label for="product_conut">Product Count</label>
+                            <input type="text" name="product_count" class="form-control" id="product_count" aria-describedby="emailHelp" value="@item.product_img_count">
+                        </div>                        
+                    </div>
+                    }
+                }
+                else
+                {
+                    foreach (var item in Model._editProductImage)
+                    {
+                        <div id="cloned" class="row UploadFileAndColor" style="margin-bottom:40px;">
+                            <div class="form-group col-4">
+                                <img src="@item.product_img" alt="Alternate Text" style="width:100%" />
+                            </div>
+                            <div class="form-group col-3">
+                                <label for="color">Color</label>
+                                <input class="form-control" disabled="disabled" value="@Model._product_color.Where(s=>s.color_id==item.product_img_color_id).First().color_name">
+                            </div>
+                            <div class="col-5">
+                                <div class="row">
+                                    @foreach ( var s_item in Model._sizeproduct)
+                                    {
+                                        if (s_item.product_pivot_img_id==item.product_img_id)
+                                        {
+                                            <div>
+                                                <input type="hidden" name="product_pivot_id" value="@s_item.product_pivot_id" />
+                                            </div>
+                                            <div class="form-check col-6 ">
+                                                <input type="text" class="form-check-input product_size" disabled="disabled" name="product_size" value="@s_item.Size.size_name">                                                
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <input type="text" name="product_size_count" class="form-control" id="product_size_count" aria-describedby="emailHelp" value="@s_item.product_pivot_count">
+                                            </div>
+                                        }
+                                    }
+                                   
+                                </div>
+                            </div>
+                            <input style="display:none" type="text" class="checkBoxList" name="checkBoxList_name" />
+                        </div>
+                    }
+                }
+            </div>            
+            <button type="submit" id="submit_btn" class="btn d-block btn-primary">Submit</button>
+        </form>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        
+    </script>
+
 </body>
 </html>

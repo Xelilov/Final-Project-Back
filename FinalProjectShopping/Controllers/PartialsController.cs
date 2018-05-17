@@ -14,6 +14,10 @@ namespace FinalProjectShopping.Controllers
 
         public PartialViewResult Menu()
         {
+            if (LoginRegisterController.log_user!=null)
+            {
+                ViewBag.login = LoginRegisterController.log_user.user_name;
+            }
             var _menu_view = new MenuViewModel();
             _menu_view._category = db.Categories.ToList();
             _menu_view._subcategory = db.Subcategories.ToList();

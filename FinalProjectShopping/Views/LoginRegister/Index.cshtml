@@ -34,12 +34,12 @@
 
                     <!-- <<<<<<<<<<<<<<<<<<< Sign IN Tabs >>>>>>>>>>>>>>>>>>> -->
                     <li class="nav-item">
-                        <a class="nav-link active btn btn-default" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Sign In</a>
+                        <button class="nav-link active btn btn-default" id="login-tab" data-toggle="tab" data-target="#login" role="tab" aria-controls="login" aria-selected="true">Sign In</button>
                     </li>
 
                     <!-- <<<<<<<<<<<<<<<<<<< Register tabs >>>>>>>>>>>>>>>>>>> -->
                     <li class="nav-item _register_tabs">
-                        <a class="nav-link btn btn-default " id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                        <button class="nav-link btn btn-default " id="register-tab" data-toggle="tab" data-target="#register" role="tab" aria-controls="register" aria-selected="false">Register</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -68,12 +68,12 @@
                             <!-- <<<<<<<<<<<<<<<<<<< Personal tabs >>>>>>>>>>>>>>>>>>> -->
 
                             <li class="nav-item">
-                                <a class="nav-link active btn btn-blue-grey" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">personal</a>
+                                <a class="nav-link active btn btn-blue-grey" id="personal-tab" data-toggle="tab" data-target="#personal" role="tab" aria-controls="personal" aria-selected="true">personal</a>
                             </li>
 
                             <!-- <<<<<<<<<<<<<<<<<<< Business tabs >>>>>>>>>>>>>>>>>>> -->
                             <li class="nav-item">
-                                <a class="nav-link btn btn-blue-grey" id="bisnes-tab" data-toggle="tab" href="#bisnes" role="tab" aria-controls="bisnes" aria-selected="false">Business</a>
+                                <a class="nav-link btn btn-blue-grey" id="bisnes-tab" data-toggle="tab" data-target="#bisnes" role="tab" aria-controls="bisnes" aria-selected="false">Business</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-user prefix grey-text"></i>
-                                        <input type="text" id="business_location" class="form-control" placeholder="Your business location" name="business_location">
+                                        <input type="text" id="business_location" class="form-control" placeholder="Your business location (City, Country)" name="business_location">
                                     </div>
                                     <div class="text-center mt-4">
                                         <button class="btn btn-primary" type="submit">Register</button>

@@ -103,6 +103,14 @@ namespace FinalProjectShopping.Controllers
         public ActionResult LogOut()
         {
             Session["business_email"] = null;
+            log_business = null;
+            return RedirectToAction("Index", "LoginRegister");
+        }
+
+        public ActionResult UserLogOut()
+        {
+            Session["user_email"] = null;
+            log_user = null;
             return RedirectToAction("Index", "LoginRegister");
         }
 

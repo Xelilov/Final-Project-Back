@@ -92,7 +92,7 @@ namespace FinalProjectShopping.Controllers
                         ProductPivotSize elem = new ProductPivotSize();
                         elem.product_pivot_img_id = productImage.product_img_id;
                         elem.product_pivot_size_id = size_id[i][s];
-                        elem.product_pivot_count = 0;
+                        elem.product_pivot_count = 5;
                         db.ProductPivotSizes.Add(elem);
                         db.SaveChanges();
                     }
@@ -107,6 +107,16 @@ namespace FinalProjectShopping.Controllers
         public ActionResult Delete(int id)
         {
             Product product = db.Products.Find(id);
+            List<UserBag> bagproduct = db.UserBags.Where(s => s.user_bag_product_id == id).ToList();
+
+            if (bagproduct.Count>0)
+            {
+                foreach (var item in bagproduct)
+                {
+                    db.UserBags.Remove(item);
+                    db.SaveChanges();
+            }
+            }
             List<ProductImage> productimg = db.ProductImages.Where(s => s.product_img_product_id == id).ToList();
             List<ProductPivotSize> sizeproduct = db.ProductPivotSizes.ToList();
             foreach (var item in productimg)
@@ -130,7 +140,68 @@ namespace FinalProjectShopping.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            ProductEditModel editPr = new ProductEditModel();
+            editPr._editproduct = db.Products.Where(s => s.product_id == id).First();
+            editPr._editProductImage = db.ProductImages.Where(s => s.product_img_product_id == id).ToList();
+            editPr._category = db.Categories.ToList();
+            editPr._subcategory = db.Subcategories.ToList();
+            editPr._innersubcategory = db.InnerSubcategories.ToList();
+            editPr._product_color = db.Colors.ToList();
+            editPr._size = db.Sizes.ToList();
+            editPr._sizeproduct = db.ProductPivotSizes.ToList();
+            return View(editPr);
+        }
+
+
+
+        [HttpPost]
+        public ActionResult Edit( int id, string product_name, string product_price, FormCollection form, List<int> product_count, List<int> product_size_count, List<int> product_pivot_id)
+        {
+            Product pr = db.Products.Find(id);
+            pr.product_name = product_name;
+            pr.product_price = product_price;
+            db.SaveChanges();
+
+            List<ProductImage> productimg = db.ProductImages.Where(s => s.product_img_product_id == id).ToList();
+            if (product_count!=null)
+            {
+                
+                for (int i = 0; i < productimg.Count; i++)
+                {
+                    productimg[i].product_img_count = product_count[i];
+                    db.SaveChanges();
+                }
+            }
+            else{
+
+                for (int i = 0; i < product_pivot_id.Count; i++)
+                {
+                    ProductPivotSize pivot = db.ProductPivotSizes.Find(product_pivot_id[i]);
+                    pivot.product_pivot_count = product_size_count[i];
+                    db.SaveChanges();
+                }
+                
+
+            }
+
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult categoty(int? id)
+        {
+            var a = Convert.ToInt32(id);
+            db.Configuration.ProxyCreationEnabled = false;
+            var subcat = db.Subcategories.Where(s => s.category_id == a).ToList();
+            return Json(subcat, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult subcategoty(int? id)
+        {
+            var a = Convert.ToInt32(id);
+            db.Configuration.ProxyCreationEnabled = false;
+            var innersubcat = db.InnerSubcategories.Where(s => s.innersubcategory_subcategory_id == a).ToList();
+            return Json(innersubcat, JsonRequestBehavior.AllowGet);
         }
 
 

@@ -66,6 +66,7 @@
     <NavigationProperty Name="InnerSubcategory" Relationship="Self.FK_Product_InnerSubcategory" FromRole="Product" ToRole="InnerSubcategory" />
     <NavigationProperty Name="Subcategory" Relationship="Self.FK_Product_Subcategory" FromRole="Product" ToRole="Subcategory" />
     <NavigationProperty Name="ProductImages" Relationship="Self.FK_ProductImage_Product" FromRole="Product" ToRole="ProductImage" />
+    <NavigationProperty Name="UserBags" Relationship="FinalProjectModel.FK_UserBag_Product" FromRole="Product" ToRole="UserBag" />
   </EntityType>
   <EntityType Name="ProductImage">
     <Key>
@@ -79,6 +80,7 @@
     <NavigationProperty Name="Product" Relationship="Self.FK_ProductImage_Product" FromRole="ProductImage" ToRole="Product" />
     <NavigationProperty Name="ProductPivotSizes" Relationship="Self.FK_ProductPivotSize_ProductImage" FromRole="ProductImage" ToRole="ProductPivotSize" />
     <Property Name="product_img_count" Type="Int32" />
+    <NavigationProperty Name="UserBags" Relationship="FinalProjectModel.FK_UserBag_ProductImage" FromRole="ProductImage" ToRole="UserBag" />
   </EntityType>
   <EntityType Name="ProductPivotSize">
     <Key>
@@ -90,6 +92,7 @@
     <Property Name="product_pivot_count" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ProductImage" Relationship="Self.FK_ProductPivotSize_ProductImage" FromRole="ProductPivotSize" ToRole="ProductImage" />
     <NavigationProperty Name="Size" Relationship="Self.FK_ProductPivotSize_Size" FromRole="ProductPivotSize" ToRole="Size" />
+    <NavigationProperty Name="UserBags" Relationship="FinalProjectModel.FK_UserBag_ProductPivotSize" FromRole="ProductPivotSize" ToRole="UserBag" />
   </EntityType>
   <EntityType Name="Size">
     <Key>
@@ -118,6 +121,7 @@
     <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UserBags" Relationship="FinalProjectModel.FK_UserBag_UserAccount" FromRole="UserAccount" ToRole="UserBag" />
   </EntityType>
   <Association Name="FK_Product_BusinessAccount">
     <End Role="BusinessAccount" Type="Self.BusinessAccount" Multiplicity="1" />
@@ -291,5 +295,85 @@
       <End Role="Size" EntitySet="Sizes" />
       <End Role="ProductPivotSize" EntitySet="ProductPivotSizes" />
     </AssociationSet>
+    <EntitySet Name="UserBags" EntityType="FinalProjectModel.UserBag" />
+    <AssociationSet Name="FK_UserBag_Product" Association="FinalProjectModel.FK_UserBag_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="UserBag" EntitySet="UserBags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserBag_ProductImage" Association="FinalProjectModel.FK_UserBag_ProductImage">
+      <End Role="ProductImage" EntitySet="ProductImages" />
+      <End Role="UserBag" EntitySet="UserBags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserBag_ProductPivotSize" Association="FinalProjectModel.FK_UserBag_ProductPivotSize">
+      <End Role="ProductPivotSize" EntitySet="ProductPivotSizes" />
+      <End Role="UserBag" EntitySet="UserBags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserBag_UserAccount" Association="FinalProjectModel.FK_UserBag_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="UserBag" EntitySet="UserBags" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="UserBag">
+    <Key>
+      <PropertyRef Name="user_bag_id" />
+    </Key>
+    <Property Name="user_bag_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_bag_user_id" Type="Int32" Nullable="false" />
+    <Property Name="user_bag_product_id" Type="Int32" Nullable="false" />
+    <Property Name="user_bag_product_img_id" Type="Int32" Nullable="false" />
+    <Property Name="user_bag_product_pivot_id" Type="Int32" />
+    <Property Name="user_bag_product_count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="FinalProjectModel.FK_UserBag_Product" FromRole="UserBag" ToRole="Product" />
+    <NavigationProperty Name="ProductImage" Relationship="FinalProjectModel.FK_UserBag_ProductImage" FromRole="UserBag" ToRole="ProductImage" />
+    <NavigationProperty Name="ProductPivotSize" Relationship="FinalProjectModel.FK_UserBag_ProductPivotSize" FromRole="UserBag" ToRole="ProductPivotSize" />
+    <NavigationProperty Name="UserAccount" Relationship="FinalProjectModel.FK_UserBag_UserAccount" FromRole="UserBag" ToRole="UserAccount" />
+  </EntityType>
+  <Association Name="FK_UserBag_Product">
+    <End Type="FinalProjectModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="FinalProjectModel.UserBag" Role="UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserBag_ProductImage">
+    <End Type="FinalProjectModel.ProductImage" Role="ProductImage" Multiplicity="1" />
+    <End Type="FinalProjectModel.UserBag" Role="UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductImage">
+        <PropertyRef Name="product_img_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_product_img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserBag_ProductPivotSize">
+    <End Type="FinalProjectModel.ProductPivotSize" Role="ProductPivotSize" Multiplicity="0..1" />
+    <End Type="FinalProjectModel.UserBag" Role="UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductPivotSize">
+        <PropertyRef Name="product_pivot_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_product_pivot_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserBag_UserAccount">
+    <End Type="FinalProjectModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="FinalProjectModel.UserBag" Role="UserBag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="UserBag">
+        <PropertyRef Name="user_bag_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

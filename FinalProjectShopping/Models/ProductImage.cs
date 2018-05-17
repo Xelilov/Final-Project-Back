@@ -18,6 +18,7 @@ namespace FinalProjectShopping.Models
         public ProductImage()
         {
             this.ProductPivotSizes = new HashSet<ProductPivotSize>();
+            this.UserBags = new HashSet<UserBag>();
         }
     
         public int product_img_id { get; set; }
@@ -30,5 +31,7 @@ namespace FinalProjectShopping.Models
         public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductPivotSize> ProductPivotSizes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserBag> UserBags { get; set; }
     }
 }

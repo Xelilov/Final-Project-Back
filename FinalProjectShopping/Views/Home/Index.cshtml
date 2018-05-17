@@ -1,4 +1,5 @@
-﻿
+﻿@model FinalProjectShopping.Models.CategoryHtmlVM
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,13 +11,13 @@
         <div class="row">
             <div class="owl-carousel owl-theme">
                 <div class="item cl_bs_item_height">
-                    <img class="cl_im_height" src="images/shopping.jpg" alt="">
+                    <img class="cl_im_height" src="~/assents_home/images/shopping.jpg" alt="">
                 </div>
                 <div class="item cl_bs_item_height">
-                    <img class="cl_im_height" src="images/shopping2.jpg" alt="">
+                    <img class="cl_im_height" src="~/assents_home/images/shopping2.jpg" alt="">
                 </div>
                 <div class="item cl_bs_item_height">
-                    <img class="cl_im_height" src="images/shopping3.jpg" alt="">
+                    <img class="cl_im_height" src="~/assents_home/images/shopping3.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -30,18 +31,18 @@
             <div class="col-md-4">
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="clothing.html"><img class="_cl_zoom" src="images/300x300clothing1.jpeg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="1"})"><img class="_cl_zoom" src="~/assents_home/images/300x300clothing1.jpeg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="clothing.html"><img class="_cl_zoom" src="images/300x300clothing2.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="1"})"><img class="_cl_zoom" src="~/assents_home/images/300x300clothing2.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="clothing.html"><img class="_cl_zoom" src="images/300x300clothing3.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="1"})"><img class="_cl_zoom" src="~/assents_home/images/300x300clothing3.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="clothing.html"><img class="_cl_zoom" src="images/300x300clothing4.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="1"})"><img class="_cl_zoom" src="~/assents_home/images/300x300clothing4.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <h3 class="text-center">Fasion</h3>
@@ -49,18 +50,18 @@
             <div class="col-md-4">
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/watch300.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="7"})"><img class="_cl_zoom" src="~/assents_home/images/watch300.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/watch3001.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="7"})"><img class="_cl_zoom" src="~/assents_home/images/watch3001.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/watch3002.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="7"})"><img class="_cl_zoom" src="~/assents_home/images/watch3002.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/watch3003.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="7"})"><img class="_cl_zoom" src="~/assents_home/images/watch3003.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <h3 class="text-center">Watch</h3>
@@ -68,18 +69,18 @@
             <div class="col-md-4">
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/sport300.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="5"})"><img class="_cl_zoom" src="~/assents_home/images/sport300.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/sport3001.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="5"})"><img class="_cl_zoom" src="~/assents_home/images/sport3001.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/sport3002.png" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="5"})"><img class="_cl_zoom" src="~/assents_home/images/sport3002.png" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/sport3003.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="5"})"><img class="_cl_zoom" src="~/assents_home/images/sport3003.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <h3 class="text-center">Sports</h3>
@@ -91,18 +92,18 @@
             <div class="col-md-4">
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/tech300.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="2"})"><img class="_cl_zoom" src="~/assents_home/images/tech300.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/tech3001.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="2"})"><img class="_cl_zoom" src="~/assents_home/images/tech3001.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/tech3002.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="2"})"><img class="_cl_zoom" src="~/assents_home/images/tech3002.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/tech3003.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="2"})"><img class="_cl_zoom" src="~/assents_home/images/tech3003.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <h3 class="text-center">Tech</h3>
@@ -110,18 +111,18 @@
             <div class="col-md-4">
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/shoes300.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="3"})"><img class="_cl_zoom" src="~/assents_home/images/shoes300.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/shoes3001.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="3"})"><img class="_cl_zoom" src="~/assents_home/images/shoes3001.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/shoes3002.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="3"})"><img class="_cl_zoom" src="~/assents_home/images/shoes3002.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/shoes3003.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="3"})"><img class="_cl_zoom" src="~/assents_home/images/shoes3003.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <h3 class="text-center">Shoes</h3>
@@ -129,18 +130,18 @@
             <div class="col-md-4">
                 <div class="row _rov_margin">
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/home300.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="4"})"><img class="_cl_zoom" src="~/assents_home/images/home300.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/home3001.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="4"})"><img class="_cl_zoom" src="~/assents_home/images/home3001.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <div class="row _rov_margin">
                     <div class="col-md-6 c">
-                        <a href="#"><img class="_cl_zoom" src="images/home3002.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="4"})"><img class="_cl_zoom" src="~/assents_home/images/home3002.jpg" alt="" style="width:100%"></a>
                     </div>
                     <div class="col-md-6 _col_padding">
-                        <a href="#"><img class="_cl_zoom" src="images/home3003.jpg" alt="" width="100%"></a>
+                        <a href="@Url.Action("Category","Home", new {id="4"})"><img class="_cl_zoom" src="~/assents_home/images/home3003.jpg" alt="" style="width:100%"></a>
                     </div>
                 </div>
                 <h3 class="text-center">Home & Garden</h3>
@@ -154,142 +155,20 @@
 <section id="item_blog">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_1.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_3.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_4.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_5.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_7.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_8.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_9.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_10.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_11.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_12.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 text-center">
-                <a href="#">
-                    <div class="_item">
-                        <div class="_item_opacity"></div>
-                        <img src="images/3x4_13.jpg" alt="" width="100%">
-                        <h5>test</h5>
-                        <p>00.00</p>
-                        <button class="_item_button">View</button>
-                    </div>
-                </a>
-            </div>
+            @foreach(var item in Model._product.OrderByDescending(p=>p.product_id).Take(12))
+            {
+                <div class="col-md-3 text-center">                
+                    <a href="@Url.Action("Product","Home", new {id=item.product_id})">
+                        <div class="_item">
+                            <div class="_item_opacity"></div>
+                            <img src="@item.ProductImages.Where(p=>p.product_img_product_id==item.product_id).First().product_img" alt="" style="width:100%">
+                            <h5>@item.product_name</h5>
+                            <p>@item.product_price $</p>
+                            <span class="_item_button">View</span>
+                        </div>
+                    </a>
+                </div>
+            }
         </div>
     </div>
 </section>

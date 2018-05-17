@@ -7,7 +7,6 @@ $(".nav-item").click(function(){
     if ($(this).children().attr("aria-expanded")=="true") {
         $(this).children().removeAttr("data-toggle")
     }
-     console.log($(this).children().attr("aria-expanded"))
 })
 
 
@@ -88,31 +87,67 @@ $("._cl_product_img_list div div div img").mouseleave(function(){
 
 
 // <<<<<<<<<<<<<<<<<<<<<<<  Product  Quantity <<<<<<<<<<<<<<<<<<<<<< \\
-$(document).ready(function(){
-
-var quantitiy=0;
+$(document).ready(function () {
    $('.quantity-left-minus').click(function(e){
         // e.preventDefault();
         var quantity = parseInt($(this).parent().next().val());
-       if(quantity>0){
-         $(this).parent().next().val(quantity - 1);
-       }
+        if (quantity > 0) {
+            quantity--;
+           $(this).parent().next().val(quantity);
+        }
+       var price = $("._cl_price_text_decor").text();
+       var arr = price.split(" ");
+       var number = parseInt(arr[0]);
+       var totalprice = number * quantity;
+       $("._total_price").text(totalprice +" "+ "$");
     });
 
      $('.quantity-right-plus').click(function(e){
         e.preventDefault();
         var quantity = parseInt( $(this).parent().prev().val());
-        
-            $(this).parent().prev().val(quantity + 1);
-            
+
+        if (quantity < currentCount) {
+            quantity++;
+            $(this).parent().prev().val(quantity);
+        }
+        var price = $("._cl_price_text_decor").text();
+        var arr = price.split(" ");
+        var number = parseInt(arr[0]);
+        var totalprice = number * quantity;
+        $("._total_price").text(totalprice +" "+ "$");
     });
     
 });
 
+// <<<<<<<<<<<<<<<<<<<<<<<  Bag  Quantity <<<<<<<<<<<<<<<<<<<<<< \\
+$(document).ready(function () {
+    $('.quantity-minus').click(function (e) {
+        // e.preventDefault();
+        var quantity = parseInt($(this).parent().next().val());
+        if (quantity > 0) {
+            $(this).parent().next().val(quantity - 1);
+        }
+    });
+
+    $('.quantity-plus').click(function (e) {
+        e.preventDefault();
+        var quantity = parseInt($(this).parent().prev().val());
+        var count = parseInt($(this).attr("data-attr"))
+        if (quantity < count) {
+            $(this).parent().prev().val(quantity + 1);
+        }
+        
+    });
+
+});
+
+
+
+
 // <<<<<<<<<<<<<<<<<<<<<<<  Color Select <<<<<<<<<<<<<<<<<<<<<< \\
 
 $("._product_color").click(function(){
-    $("._product_color").css('border', 'none');
+    $("._product_color").css('border', '1px solid grey');
     $("._product_size").css('border', '1px solid #8798b5');
     $(this).css('border', '2px solid #2c3544');
 })

@@ -46,7 +46,7 @@
 
     <section id="_product_datatables">
         <div class="container-fluid">
-            <button class="btn btn-primary">@Html.ActionLink("New Product", "Create") </button>
+            @Html.ActionLink("New Product", "Create",null, new { @class="btn btn-primary"})
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fa fa-table"></i> Data Table Example
@@ -57,21 +57,17 @@
                             <thead>
                                 <tr class="table-success">
                                     <th>Name</th>
-                                    <th>Discount</th>
                                     <th>Count</th>
                                     <th>Price</th>
-                                    <th>Discount Price</th>
-                                    <th>Salary</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr class="table-success">
                                     <th>Name</th>
-                                    <th>Discount</th>
                                     <th>Count</th>
                                     <th>Price</th>
-                                    <th>Discount Price</th>
-                                    <th>Salary</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                             
@@ -79,22 +75,48 @@
                                 @foreach (var item in Model._product)
                                 {
                                     <tr>
-                                        <td>@item.product_name</td>
-                                        <td>Deactive</td>
-                                        <td>
-                                            count
+                                        <td style="width:400px;">
+                                            <h4>@item.product_name</h4>
                                         </td>
-                                        <td>@item.product_price</td>
-                                        <td>@item.product_discount_rate</td>
+                                        <td style="width:300px">
+                                            @if (item.product_category_id==1)
+                                            {
+                                                foreach (var i_item in item.ProductImages)
+                                                {
+                                                    <div class="row" style="margin:10px 0 10px 3px;">
+                                                        <img src="@i_item.product_img" alt="Alternate Text" style="width:50%; height:150px;" />
+                                                        <div>
+                                                        @foreach (var s_item in i_item.ProductPivotSizes)
+                                                        {
+                                                            <p style="margin-left:50px;">@s_item.Size.size_name  :  @s_item.product_pivot_count  piece</p>
+                                                        }
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                }
+                                            }
+                                            else
+                                            {
+                                                foreach (var i_item in item.ProductImages)
+                                                {
+                                                    <div class="row" style="margin:10px 0 10px 3px;">
+                                                        <img src="@i_item.product_img" alt="Alternate Text" style="width:50%; height:150px;"  />
+                                                        <p style="margin-left:50px;">@i_item.product_img_count piece</p>
+                                                    </div>
+                                                    <hr />
+                                                }
+                                            }
+                                        </td>
+                                        <td>@item.product_price $</td>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#@item.product_id">Delete
                                             </button>
                                             <a class="btn btn-success" href="@Url.Action("Edit","Business",new { id=item.product_id})">Edit</a>
 
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal fade" id="@item.product_id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">

@@ -19,17 +19,72 @@
 
                     <!-- <<<<<<<<<<<<<<<<<<<<<<< Left Search>>>>>>>>>>>>>>>>>>>>>>> -->
 
-
+                    <input type="hidden" class="_innerid" value="@ViewBag.innerid" />
                     <div class="_cl_price_search">
                         <h6>Price</h6>
-                        <h6>min:  <input type="text"> max: <input type="text"></h6>
+                        <h6>min:  <input class="_minprice" type="text"> max: <input class="_maxprice" type="text"></h6>
                     </div>
+                    @section productpriceSearch{
+                    <script>
+                        function createelem(element,class1,atttr,attrname,txt) {
+                            var a = document.createElement(element)
+                            if (class1 != ""){
+                                a.classList.add(class1)
+                            }
+                            if (atttr != "" && attrname != ""){
+                                a.setAttribute(atttr, attrname)
+                            }
+                            if (txt!=""){
+                                a.innerText = txt
+                            }
+                            return a;
+                        }
+                        $("._minprice").keyup(function () {
+                            var minprice = $("._minprice").val();
+                            var maxprice = $("._maxprice").val();
+                            var innerid = $("._innerid").val();
+                            if (!parseInt(minprice)){
+                                minprice = 0;
+                            }
+                            if (!parseInt(maxprice)) {
+                                maxprice = 2000;
+                            }
+                            $.ajax({
+                                url: "/Home/Minprice",
+                                data: {
+                                    minprice: minprice,
+                                    innerid: innerid,
+                                    maxprice: maxprice,
+                                },
+                                method: "GET",
+                                type: "Json",
+                                success: function (response) {
+                                    $("._product_script").empty()
+                                    $.each(response, function (index, element) {
+                                        var a = createelem("div", "col-md-3","","","");
+                                        $("._product_script").append(a)
+                                        var tagA = createelem("a", "", "href", '/Home/Product/' + element.product_id,"");
+                                        a.append(tagA);
+                                        var item = createelem("div", "_item","","","");
+                                        tagA.append(item)
+                                        item.append(createelem("div", "_item_opacity", "", "", ""))
+                                        item.append(createelem("img", "img-fluid", "src", element.Image, ""))
+                                        item.append(createelem("h5", "", "", "", element.product_name))
+                                        item.append(createelem("p", "", "", "", element.product_price))
+                                        item.append(createelem("span", "_item_button", "", "", "View"))                                        
+                                    });
+                                }
+                            })
+                        })
+
+                    </script>
+                    }
 
                     <div class="_cl_selected">
                         <ul></ul>
                     </div>
-                   
-                    <div class="_cl_search_item _size">
+
+                    @*<div class="_cl_search_item _size">
                         <h6>Size</h6>
                         <ul>
                             <li>XS</li>
@@ -65,13 +120,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
 
 
 
 
                     <!-- <<<<<<<<<<<<<<<<<<<<<<< Mini Slider>>>>>>>>>>>>>>>>>>>>>>> -->
-                    <div class="_mini_carousel">
+                    @*<div class="_mini_carousel">
                         <div class="owl-carousel owl-theme">
                             <div class="item">
                                 <img class="cl_im_height" src="images/3x4.jpg" alt="">
@@ -86,13 +141,13 @@
                                 <img class="cl_im_height" src="images/3x4_3.jpg" alt="">
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <!-- <<<<<<<<<<<<<<<<<<<<<< End Mini Slider>>>>>>>>>>>>>>>>>>>>>> -->
 
                 </div>
                 <div class="col-md-10">
                     <div class="container text-center">
-                        <div class="row">
+                        <div class="row _product_script">
                             @foreach (var p_item in Model._product)
                             {
                                 <div class="col-md-3">
@@ -102,7 +157,7 @@
                                             <img src="@p_item.ProductImages.Where(p=>p.product_img_product_id==p_item.product_id).First().product_img" alt="" width="100%">
                                             <h5>@p_item.product_name</h5>
                                             <p>@p_item.product_price $</p>
-                                            <button class="_item_button">View</button>
+                                            <span class="_item_button">View</span>
                                         </div>
                                     </a>
                                 </div>

@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginRegisterController.cs" />
     <Compile Include="Controllers\PartialsController.cs" />
+    <Compile Include="Controllers\UserBagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +212,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>FinalProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductEditModel.cs" />
     <Compile Include="Models\ProductImage.cs">
       <DependentUpon>FinalProjectModel.tt</DependentUpon>
     </Compile>
@@ -227,7 +229,12 @@
     <Compile Include="Models\UserAccount.cs">
       <DependentUpon>FinalProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserBag.cs">
+      <DependentUpon>FinalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserBagModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assents_admin\css\sb-admin.css" />
@@ -298,47 +305,16 @@
     <Content Include="assents_home\images\300x300clothing2.jpg" />
     <Content Include="assents_home\images\300x300clothing3.jpg" />
     <Content Include="assents_home\images\300x300clothing4.jpg" />
-    <Content Include="assents_home\images\3x4.jpg" />
-    <Content Include="assents_home\images\3x4_1.jpg" />
-    <Content Include="assents_home\images\3x4_10.jpg" />
-    <Content Include="assents_home\images\3x4_11.jpg" />
-    <Content Include="assents_home\images\3x4_12.jpg" />
-    <Content Include="assents_home\images\3x4_13.jpg" />
-    <Content Include="assents_home\images\3x4_2.jpg" />
-    <Content Include="assents_home\images\3x4_3.jpg" />
-    <Content Include="assents_home\images\3x4_4.jpg" />
-    <Content Include="assents_home\images\3x4_5.JPG" />
-    <Content Include="assents_home\images\3x4_6.jpg" />
-    <Content Include="assents_home\images\3x4_7.jpg" />
-    <Content Include="assents_home\images\3x4_8.jpg" />
-    <Content Include="assents_home\images\3x4_9.jpg" />
     <Content Include="assents_home\images\Example.png" />
     <Content Include="assents_home\images\home300.jpg" />
     <Content Include="assents_home\images\home3001.jpg" />
     <Content Include="assents_home\images\home3002.jpg" />
     <Content Include="assents_home\images\home3003.jpg" />
-    <Content Include="assents_home\images\pants3x4.jpg" />
-    <Content Include="assents_home\images\pants3x4_1.jpg" />
-    <Content Include="assents_home\images\pants3x4_10.jpg" />
-    <Content Include="assents_home\images\pants3x4_11.jpg" />
-    <Content Include="assents_home\images\pants3x4_12.jpg" />
-    <Content Include="assents_home\images\pants3x4_13.jpg" />
-    <Content Include="assents_home\images\pants3x4_14.jpg" />
-    <Content Include="assents_home\images\pants3x4_15.jpg" />
-    <Content Include="assents_home\images\pants3x4_2.jpg" />
-    <Content Include="assents_home\images\pants3x4_3.jpg" />
-    <Content Include="assents_home\images\pants3x4_4.jpg" />
-    <Content Include="assents_home\images\pants3x4_5.jpg" />
-    <Content Include="assents_home\images\pants3x4_6.jpg" />
-    <Content Include="assents_home\images\pants3x4_7.jpg" />
-    <Content Include="assents_home\images\pants3x4_8.jpg" />
-    <Content Include="assents_home\images\pants3x4_9.jpg" />
     <Content Include="assents_home\images\pay01.png" />
     <Content Include="assents_home\images\pay02.png" />
     <Content Include="assents_home\images\pay03.png" />
     <Content Include="assents_home\images\pay04.png" />
     <Content Include="assents_home\images\pay05.ico" />
-    <Content Include="assents_home\images\sample.jpg" />
     <Content Include="assents_home\images\shoes300.jpg" />
     <Content Include="assents_home\images\shoes3001.jpg" />
     <Content Include="assents_home\images\shoes3002.jpg" />
@@ -656,6 +632,7 @@
     <Content Include="Views\Home\InnerSub.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Business\Edit.cshtml" />
+    <Content Include="Views\UserBag\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
